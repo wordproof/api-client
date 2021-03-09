@@ -1,1 +1,1 @@
-# api-client
+# Wordproof API client
