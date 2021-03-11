@@ -13,15 +13,30 @@ class HttpRequestFactory
     protected array $options;
     
     /**
+     * Headers array
+     * @var array
+     */
+    protected array $headers = [];
+    
+    /**
      * Generate an array of common headers
      * @return string[]
      */
-    public function headers(): array
+    protected function headers(): array
     {
-        return [
+        $this->headers = array_merge($this->headers, [
             'Authorization' => 'Bearer ' . $this->options['token'],
             'Accept' => 'application/json',
             'Content-Type' => 'application/json',
-        ];
+        ]);
+        
+        return $this->headers;
+    }
+    
+    public function withHeaders(array $headers): self
+    {
+        $this->headers = $headers;
+        
+        return $this;
     }
 }

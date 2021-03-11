@@ -29,7 +29,7 @@ class WordProofApi implements ClientInterface
     
     public function setOptions(array $options)
     {
-        $this->options = array_merge($options, $this->options);
+        $this->options = array_merge($this->options, $options);
     }
     
     public function getOptions(string $key = null)
@@ -37,6 +37,12 @@ class WordProofApi implements ClientInterface
         if (!$key) return $this->options;
         
         return isset($this->options[$key]) ? $this->options[$key] : null;
+    }
+    
+    public function withOptions(array $options)
+    {
+        $this->setOptions($options);
+        return $this;
     }
     
     public function timestamp()

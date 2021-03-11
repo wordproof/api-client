@@ -40,7 +40,7 @@ class TimestampFactory extends HttpRequestFactory
     public function post(array $timestampData)
     {
         $request = new Request(
-            $this->options['endpoint'] . "/timestamps/",
+            $this->options['endpoint'] . "/timestamps",
             "POST",
             $this->stream->createStream(json_encode($timestampData)),
             $this->headers()
@@ -50,16 +50,11 @@ class TimestampFactory extends HttpRequestFactory
         
         $body = $response->getBody()->getContents();
         
-        ray()->clearScreen();
-        ray($request);
-        ray($response);
-        ray($body);
-        
         if ($body === "" || !json_decode($body, true)) {
             throw new ApiException("Incorrect WordProof response");
         }
         
-        return new Timestamp(json_decode($body, true));
+        return $response;
     }
     
     public function bulk(array $timestampsData)
