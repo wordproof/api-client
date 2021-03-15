@@ -13,8 +13,6 @@ class ConnectTest extends TestCase
         $request = new Request("http://my.wordproof.com/api", "GET");
         $statusCode = $wordproof->sendRequest($request)->getStatusCode();
         
-        $wordproof->timestamp()->get(1);
-        
         $this->assertEquals(200, $statusCode);
     }
 }
