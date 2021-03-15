@@ -1,0 +1,39 @@
+{
+    "name": "wordproof/api-client",
+    "description": "Wordproof API client",
+    "minimum-stability": "stable",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Yurii Markovych",
+            "email": "yurii@wordproof.com"
+        }
+    ],
+    "require": {
+        "php": "^7.4|^8.0",
+        "ext-curl": "*",
+        "ext-json": "*",
+        "psr/http-client": "^1.0",
+        "spatie/data-transfer-object": "^2.8",
+        "laminas/laminas-diactoros": "^2.5",
+        "php-http/curl-client": "^2.2",
+        "php-http/client-common": "^2.3"
+    },
+    "require-dev": {
+        "spatie/ray": "^1.21",
+        "phpunit/phpunit": "^9.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "WordProof\\ApiClient\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "WordProof\\ApiClient\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
+    }
+}
