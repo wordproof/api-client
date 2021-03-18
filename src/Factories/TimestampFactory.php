@@ -33,8 +33,10 @@ class TimestampFactory extends HttpRequestFactory
                 $this->headers()
             )
         );
+    
+        $body = json_decode($response->getBody()->getContents(), true);
         
-        return new Timestamp(json_decode($response->getBody()->getContents(), true));
+        return new Timestamp($body);
     }
     
     public function post(array $timestampData)
