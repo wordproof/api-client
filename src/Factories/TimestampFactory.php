@@ -2,8 +2,7 @@
 
 namespace WordProof\ApiClient\Factories;
 
-use Laminas\Diactoros\Request;
-use Laminas\Diactoros\StreamFactory;
+use Nyholm\Psr7\Request;
 use Psr\Http\Client\ClientInterface;
 use WordProof\ApiClient\DTOs\Timestamp;
 use WordProof\ApiClient\Exceptions\ApiException;
@@ -12,13 +11,10 @@ class TimestampFactory extends HttpRequestFactory
 {
     private ClientInterface $client;
     
-    private StreamFactory $stream;
     
     public function __construct(ClientInterface $client, array $options)
     {
         $this->client = $client;
-        
-        $this->stream = new StreamFactory();
         
         $this->options = $options;
     }
@@ -27,9 +23,9 @@ class TimestampFactory extends HttpRequestFactory
     {
         $response = $this->client->sendRequest(
             new Request(
-                $this->options['endpoint'] . "/timestamps/$timestampId",
                 "GET",
-                $this->stream->createStream(),
+                $this->options['endpoint'] . "/timestamps/$timestampId",
+                [],
                 $this->headers()
             )
         );
@@ -42,9 +38,9 @@ class TimestampFactory extends HttpRequestFactory
     public function post(array $timestampData)
     {
         $request = new Request(
-            $this->options['endpoint'] . "/timestamps",
             "POST",
-            $this->stream->createStream(json_encode($timestampData)),
+            $this->options['endpoint'] . "/timestamps",
+            $timestampData,
             $this->headers()
         );
         
