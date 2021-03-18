@@ -20,7 +20,7 @@ class WordProofApi implements ClientInterface
     
     private ClientInterface $client;
     
-    public function __construct(string $token, ClientInterface $client = null)
+    public function __construct(string $token = null, ClientInterface $client = null)
     {
         $this->client = $client ?? new Client(null, null, [CURLOPT_FOLLOWLOCATION => true]);
         
