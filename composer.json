@@ -15,9 +15,8 @@
         "ext-json": "*",
         "psr/http-client": "^1.0",
         "spatie/data-transfer-object": "^2.8",
-        "php-http/curl-client": "^2.2",
-        "php-http/client-common": "^2.3",
-        "nyholm/psr7": "^1.4"
+        "nyholm/psr7": "^1.4",
+        "php-http/httplug": "^2.2"
     },
     "require-dev": {
         "spatie/ray": "^1.21",
