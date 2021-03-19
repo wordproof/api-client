@@ -2,7 +2,6 @@
 
 namespace WordProof\ApiClient;
 
-use Http\Client\Curl\Client;
 use Psr\Http\Client\ClientInterface;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
@@ -22,7 +21,7 @@ class WordProofApi implements ClientInterface
     
     public function __construct(string $token = null, ClientInterface $client = null)
     {
-        $this->client = $client ?? new Client(null, null, [CURLOPT_FOLLOWLOCATION => true]);
+        $this->client = $client ?? new Client();
         
         $this->options['token'] = $token;
     }
