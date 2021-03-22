@@ -10,13 +10,13 @@ class HttpRequestFactory
      * Common options
      * @var array
      */
-    protected array $options;
+    protected $options;
     
     /**
      * Headers array
      * @var array
      */
-    protected array $headers = [];
+    protected $headers = [];
     
     /**
      * Generate an array of common headers

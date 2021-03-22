@@ -9,7 +9,7 @@ use WordProof\ApiClient\Factories\TimestampFactory;
 
 class WordProofApi implements ClientInterface
 {
-    private array $options = [
+    private $options = [
         
         'endpoint' => "http://my.wordproof.com/api",
         
@@ -17,7 +17,7 @@ class WordProofApi implements ClientInterface
         
     ];
     
-    private ClientInterface $client;
+    private $client;
     
     public function __construct(string $token = null, ClientInterface $client = null)
     {
@@ -44,14 +44,14 @@ class WordProofApi implements ClientInterface
         return $this;
     }
     
-    public function timestamp()
-    {
-        return new TimestampFactory($this->client, $this->options);
-    }
-    
     public function sendRequest(RequestInterface $request): ResponseInterface
     {
         return $this->client->sendRequest($request);
+    }
+    
+    public function timestamp()
+    {
+        return new TimestampFactory($this->client, $this->options);
     }
     
 }

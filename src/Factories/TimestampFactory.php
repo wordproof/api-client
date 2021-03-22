@@ -9,7 +9,7 @@ use WordProof\ApiClient\Exceptions\ApiException;
 
 class TimestampFactory extends HttpRequestFactory
 {
-    private ClientInterface $client;
+    private $client;
     
     
     public function __construct(ClientInterface $client, array $options)
