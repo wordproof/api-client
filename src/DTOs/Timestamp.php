@@ -2,22 +2,20 @@
 
 namespace WordProof\ApiClient\DTOs;
 
-use Spatie\DataTransferObject\DataTransferObject;
-
 class Timestamp extends DataTransferObject
 {
-    public string $uid;
+    public $uid;
     
-    public string $hash_input;
+    public $hash_input;
     
-    public string $date_modified;
+    public $date_modified;
     
-    public string $title;
+    public $title;
     
-    public string $meta_title;
+    public $meta_title;
     
-    public string $content;
+    public $content;
     
-    public string $url;
+    public $url;
     
 }
