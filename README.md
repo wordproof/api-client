@@ -1,7 +1,7 @@
-# Wordproof API client
+# WordProof API client
 
 ## Requirements
-- PHP 7.4+  
+- PHP 5.6.20 | ^7.0 | ^8.0  
 - cURL extension  
 - JSON extension
 
